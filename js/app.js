@@ -8,7 +8,12 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     	.state('home', {
     		url: '/',
     		templateUrl: '/js/home/homeTmpl.html',
-    		controller: 'homeCtrl'    		
+    		controller: 'homeCtrl',
+            resolve: {
+                allTeamData: function(homeService) {
+                    return homeService.getAllTeamData();
+                }
+            }
     	})
     	.state('teams', {
     		url: '/teams/:team',
@@ -16,8 +21,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     		controller: 'teamCtrl',
     		resolve: {
     			teamData: function(teamService, $stateParams) {
-    			
-    				return teamService.getTeamData($stateParams.team);
+    			     return teamService.getTeamData($stateParams.team);
     			}
     		}
     		

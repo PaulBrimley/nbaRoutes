@@ -1,3 +1,50 @@
-<div class="inner-container">
-
-</div>
+<div class="holder">
+    <div class="repeat-inner-container">
+        <div class="logo">
+            <img ng-src="{{jazzData.logoPath}}">
+        </div>
+        <div class="record">
+            <h1> Wins: {{jazzData.wins}} Losses: {{jazzData.losses}} </h1>
+        </div>
+        <div class="team-data">
+            <div class="game" ng-repeat="game in jazzData" ng-class="{'even' : $index % 2 === 0}">
+                Date: {{game.createdAt | date: 'longDate'}}
+                <br /> Utah Jazz - {{game.homeTeamScore}}
+                <br /> {{game.opponent}} - {{game.opponentScore}}
+                </br />
+            </div>
+        </div>
+    </div>
+    <div class="repeat-inner-container">
+        <div class="logo">
+            <img ng-src="{{lakersData.logoPath}}">
+        </div>
+        <div class="record">
+            <h1> Wins: {{lakersData.wins}} Losses: {{lakersData.losses}} </h1>
+        </div>
+        <div class="team-data">
+            <div class="game" ng-repeat="game in lakersData" ng-class="{'even' : $index % 2 === 0}">
+                Date: {{game.createdAt | date: 'longDate'}}
+                <br /> Los Angeles Lakers - {{game.homeTeamScore}}
+                <br /> {{game.opponent}} - {{game.opponentScore}}
+                </br />
+            </div>
+        </div>
+    </div>
+    <div class="repeat-inner-container">
+        <div class="logo">
+            <img ng-src="{{heatData.logoPath}}">
+        </div>
+        <div class="record">
+            <h1> Wins: {{heatData.wins}} Losses: {{heatData.losses}} </h1>
+        </div>
+        <div class="team-data">
+            <div class="game" ng-repeat="game in heatData" ng-class="{'even' : $index % 2 === 0}">
+                Date: {{game.createdAt | date: 'longDate'}}
+                <br /> Miami Heat - {{game.homeTeamScore}}
+                <br /> {{game.opponent}} - {{game.opponentScore}}
+                </br />
+            </div>
+        </div>
+    </div>
+</div>    
